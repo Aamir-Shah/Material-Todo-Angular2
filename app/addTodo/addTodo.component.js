@@ -9,24 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var header_component_1 = require('./header/header.component');
-var addTodo_component_1 = require('./addTodo/addTodo.component');
-// import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-// import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
-var icon_1 = require('@angular2-material/icon');
-var AppComponent = (function () {
-    function AppComponent() {
+var card_1 = require('@angular2-material/card');
+var input_1 = require('@angular2-material/input');
+var AddTodo = (function () {
+    function AddTodo() {
     }
-    AppComponent = __decorate([
+    AddTodo.prototype.onSubmit = function (event) {
+        console.log(event);
+    };
+    AddTodo = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html',
-            directives: [header_component_1.HeaderComponent, addTodo_component_1.AddTodo],
-            providers: [icon_1.MdIconRegistry]
+            selector: "add-todo",
+            templateUrl: 'app/addTodo/addTodo.component.html',
+            styleUrls: ['app/addTodo/addTodo.component.css'],
+            directives: [card_1.MD_CARD_DIRECTIVES, input_1.MD_INPUT_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], AddTodo);
+    return AddTodo;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AddTodo = AddTodo;
+//# sourceMappingURL=addTodo.component.js.map

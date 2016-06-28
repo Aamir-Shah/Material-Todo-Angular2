@@ -9,24 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var header_component_1 = require('./header/header.component');
-var addTodo_component_1 = require('./addTodo/addTodo.component');
-// import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-// import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
+var toolbar_1 = require('@angular2-material/toolbar');
 var icon_1 = require('@angular2-material/icon');
-var AppComponent = (function () {
-    function AppComponent() {
+var HeaderComponent = (function () {
+    function HeaderComponent() {
     }
-    AppComponent = __decorate([
+    HeaderComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html',
-            directives: [header_component_1.HeaderComponent, addTodo_component_1.AddTodo],
-            providers: [icon_1.MdIconRegistry]
+            selector: 'header',
+            templateUrl: 'app/header/header.component.html',
+            directives: [toolbar_1.MD_TOOLBAR_DIRECTIVES, icon_1.MdIcon]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], HeaderComponent);
+    return HeaderComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HeaderComponent = HeaderComponent;
+//# sourceMappingURL=header.component.js.map

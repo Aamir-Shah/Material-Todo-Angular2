@@ -1,7 +1,11 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
 import { HTTP_PROVIDERS } from '@angular/http'
 import { AppComponent } from './app.component';
+import { disableDeprecatedForms, provideForms } from '@angular/forms';
 
 bootstrap(AppComponent, [
-    HTTP_PROVIDERS
-]);
+    HTTP_PROVIDERS,
+    disableDeprecatedForms(),
+    provideForms()
+])
+    .catch((err: any) => console.error(err))
