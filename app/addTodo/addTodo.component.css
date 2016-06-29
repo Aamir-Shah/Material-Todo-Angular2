@@ -1,11 +1,11 @@
 .card{
     width: 50%;
-    height: 15vh;
+    height: 12vh;
     margin: 10vh auto 0 auto;
 }
 
 .card md-input{
     width: 90%;
-    margin: 10vh auto 0 auto;
+    margin: 8vh auto 0 auto;
     display: block;
 }

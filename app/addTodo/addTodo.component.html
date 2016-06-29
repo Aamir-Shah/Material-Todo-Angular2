@@ -1,7 +1,9 @@
 <md-card class="card">
 
     <form (ngSubmit)="onSubmit(val.value)">
-        <md-input placeholder="What needs to be done?" #val></md-input>
+        <md-input placeholder="What needs to be done?"  #val></md-input>
     </form>
 
 </md-card>
+
+<view-todo [todo]="arr"></view-todo>

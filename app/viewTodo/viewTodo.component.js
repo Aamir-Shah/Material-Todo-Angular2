@@ -10,26 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var card_1 = require('@angular2-material/card');
-var input_1 = require('@angular2-material/input');
-var viewTodo_component_1 = require('../viewTodo/viewTodo.component');
-var AddTodo = (function () {
-    function AddTodo() {
-        this.arr = [];
+var list_1 = require('@angular2-material/list');
+var icon_1 = require('@angular2-material/icon');
+var button_1 = require('@angular2-material/button');
+// import { AddTodo } from '../addTodo/addTodo.component'
+var ViewTodo = (function () {
+    function ViewTodo() {
     }
-    AddTodo.prototype.onSubmit = function (event) {
-        this.arr.push(event);
-        console.log(this.arr, "arr");
-    };
-    AddTodo = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], ViewTodo.prototype, "todo", void 0);
+    ViewTodo = __decorate([
         core_1.Component({
-            selector: "add-todo",
-            templateUrl: 'app/addTodo/addTodo.component.html',
-            styleUrls: ['app/addTodo/addTodo.component.css'],
-            directives: [card_1.MD_CARD_DIRECTIVES, input_1.MD_INPUT_DIRECTIVES, viewTodo_component_1.ViewTodo]
+            selector: 'view-todo',
+            templateUrl: 'app/viewTodo/viewTodo.component.html',
+            styleUrls: ['app/viewTodo/viewTodo.component.css'],
+            directives: [card_1.MD_CARD_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, icon_1.MD_ICON_DIRECTIVES, button_1.MD_BUTTON_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
-    ], AddTodo);
-    return AddTodo;
+    ], ViewTodo);
+    return ViewTodo;
 }());
-exports.AddTodo = AddTodo;
-//# sourceMappingURL=addTodo.component.js.map
+exports.ViewTodo = ViewTodo;
+//# sourceMappingURL=viewTodo.component.js.map
