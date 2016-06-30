@@ -22,13 +22,17 @@ var AddTodo = (function () {
     AddTodo.prototype.ngOnInit = function () {
         // this.af.auth
         //     .subscribe(auth => this.auth = auth)
-        this.auth.getAuthState();
     };
     AddTodo.prototype.onSubmit = function (param, event) {
-        var path = this.af.database.list('allTodos');
-        path.push(param)
-            .then(function (abc) { return console.log("data pushed successfully", abc); })
-            .catch(function (err) { return alert("an error accured" + err); });
+        var _this = this;
+        this.auth.getAuthState()
+            .subscribe(function (authData) {
+            var path = _this.af.database.list('allTodos/' + authData.uid);
+            path.push(param)
+                .then(function (abc) { return console.log("data pushed successfully", abc); })
+                .catch(function (err) { return alert("an error accured" + err); });
+        });
+        event.preventDefault();
     };
     AddTodo = __decorate([
         core_1.Component({

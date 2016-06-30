@@ -19,14 +19,19 @@ export class AddTodo implements OnInit {
     ngOnInit() {
         // this.af.auth
         //     .subscribe(auth => this.auth = auth)
-        this.auth.getAuthState()    
     }
 
     onSubmit(param: HTMLInputElement, event) {
-        let path = this.af.database.list('allTodos');
-        path.push(param)
-            .then(abc => console.log("data pushed successfully", abc))
-            .catch(err => alert("an error accured" + err));
+        this.auth.getAuthState()
+            .subscribe(authData => {
+                let path = this.af.database.list('allTodos/' + authData.uid);
+                path.push(param)
+                    .then(abc => console.log("data pushed successfully", abc))
+                    .catch(err => alert("an error accured" + err));
+            })
+        event.preventDefault();
     }
-    event.preventDefault();
 }
+
+
+
