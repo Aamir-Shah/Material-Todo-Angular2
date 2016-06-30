@@ -9,4 +9,8 @@
         "removeComments": false,
         "noImplicitAny": false
     }
+    // "files": [
+    //     "node_modules/angularfire2/firebase3.d.ts"
+    // ]
+
 }

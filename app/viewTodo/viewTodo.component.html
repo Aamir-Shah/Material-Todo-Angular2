@@ -1,18 +1,18 @@
-<h1 *ngIf="!todo">No Todo's here!</h1>
+<!--<h1>No Todo's here!</h1>-->
 
 <md-card style="margin-top:8vh;">
     <md-list>
         <h3 md-subheader>Today</h3>
-        <md-list-item *ngFor="let foo of todo">
+        <md-list-item *ngFor="let to of allTodos | async">
             <md-icon md-list-avatar>done</md-icon>
-            <h4 md-line>{{foo}}</h4>
+            <h4 md-line>{{to.$value}}</h4>
             <p md-line>June 2</p>
 
-            <button md-raised-button color="primary">PRIMARY</button>
+            <button md-raised-button color="primary">Done</button>
             <span class="margin"></span>
-            <button md-raised-button color="accent">ACCENT</button>
+            <button md-raised-button color="accent">Edit</button>
             <span class="margin"></span>
-            <button md-raised-button color="warn">WARN</button>
+            <button md-raised-button color="warn">Remove</button>
         </md-list-item>
         <md-divider></md-divider>
     </md-list>

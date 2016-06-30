@@ -9,18 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var angularfire2_1 = require("angularfire2");
 var card_1 = require('@angular2-material/card');
 var list_1 = require('@angular2-material/list');
 var icon_1 = require('@angular2-material/icon');
 var button_1 = require('@angular2-material/button');
+var userAuthService_1 = require('../services/userAuthService');
 // import { AddTodo } from '../addTodo/addTodo.component'
 var ViewTodo = (function () {
-    function ViewTodo() {
+    function ViewTodo(af, auth) {
+        this.af = af;
+        this.auth = auth;
+        console.log('constructor is running frm viewTodo');
     }
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Object)
-    ], ViewTodo.prototype, "todo", void 0);
+    ViewTodo.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log("ngOnInit is running frm viewTodo");
+        this.auth.getAuthState()
+            .subscribe(function (authdata) {
+            if (authdata) {
+                _this.allTodos = _this.af.database.list("/allTodos");
+            }
+            else {
+                alert("Please signin to sync your Todos");
+            }
+        });
+    };
     ViewTodo = __decorate([
         core_1.Component({
             selector: 'view-todo',
@@ -28,7 +42,7 @@ var ViewTodo = (function () {
             styleUrls: ['app/viewTodo/viewTodo.component.css'],
             directives: [card_1.MD_CARD_DIRECTIVES, list_1.MD_LIST_DIRECTIVES, icon_1.MD_ICON_DIRECTIVES, button_1.MD_BUTTON_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [angularfire2_1.AngularFire, userAuthService_1.UserAuth])
     ], ViewTodo);
     return ViewTodo;
 }());

@@ -1,9 +1,11 @@
 <md-card class="card">
 
-    <form (ngSubmit)="onSubmit(val.value)">
-        <md-input placeholder="What needs to be done?"  #val></md-input>
+    <form (ngSubmit)="onSubmit(val.value, $event)">
+        <md-input placeholder="What needs to be done?" #val></md-input>
     </form>
 
 </md-card>
 
-<view-todo [todo]="arr"></view-todo>
+<!--<p *ngIf="arr" >No Todo's here!</p>-->
+
+<!--<view-todo [todo]="arr" *ngIf="!arr"></view-todo>-->

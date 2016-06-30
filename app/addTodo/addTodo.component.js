@@ -11,23 +11,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var card_1 = require('@angular2-material/card');
 var input_1 = require('@angular2-material/input');
-var viewTodo_component_1 = require('../viewTodo/viewTodo.component');
+var angularfire2_1 = require("angularfire2");
+var userAuthService_1 = require('../services/userAuthService');
 var AddTodo = (function () {
-    function AddTodo() {
-        this.arr = [];
+    // auth;
+    function AddTodo(af, auth) {
+        this.af = af;
+        this.auth = auth;
     }
-    AddTodo.prototype.onSubmit = function (event) {
-        this.arr.push(event);
-        console.log(this.arr, "arr");
+    AddTodo.prototype.ngOnInit = function () {
+        // this.af.auth
+        //     .subscribe(auth => this.auth = auth)
+        this.auth.getAuthState();
+    };
+    AddTodo.prototype.onSubmit = function (param, event) {
+        var path = this.af.database.list('allTodos');
+        path.push(param)
+            .then(function (abc) { return console.log("data pushed successfully", abc); })
+            .catch(function (err) { return alert("an error accured" + err); });
     };
     AddTodo = __decorate([
         core_1.Component({
             selector: "add-todo",
             templateUrl: 'app/addTodo/addTodo.component.html',
             styleUrls: ['app/addTodo/addTodo.component.css'],
-            directives: [card_1.MD_CARD_DIRECTIVES, input_1.MD_INPUT_DIRECTIVES, viewTodo_component_1.ViewTodo]
+            directives: [card_1.MD_CARD_DIRECTIVES, input_1.MD_INPUT_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [angularfire2_1.AngularFire, userAuthService_1.UserAuth])
     ], AddTodo);
     return AddTodo;
 }());

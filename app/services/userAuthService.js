@@ -10,28 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var angularfire2_1 = require('angularfire2');
-var toolbar_1 = require('@angular2-material/toolbar');
-var icon_1 = require('@angular2-material/icon');
-var button_1 = require('@angular2-material/button');
-var HeaderComponent = (function () {
-    function HeaderComponent(af) {
+var UserAuth = (function () {
+    function UserAuth(af) {
         this.af = af;
     }
-    HeaderComponent.prototype.login = function () {
-        this.af.auth.login()
-            .then(function (abc) { return console.log("loggedIn", abc); })
-            .catch(function (err) { return console.log("an error accured", err); });
+    UserAuth.prototype.getAuthState = function () {
+        return this.af.auth;
     };
-    HeaderComponent = __decorate([
-        core_1.Component({
-            selector: 'header',
-            templateUrl: 'app/header/header.component.html',
-            styleUrls: ['app/header/header.component.css'],
-            directives: [toolbar_1.MD_TOOLBAR_DIRECTIVES, button_1.MD_BUTTON_DIRECTIVES, icon_1.MdIcon]
-        }), 
+    UserAuth = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [angularfire2_1.AngularFire])
-    ], HeaderComponent);
-    return HeaderComponent;
+    ], UserAuth);
+    return UserAuth;
 }());
-exports.HeaderComponent = HeaderComponent;
-//# sourceMappingURL=header.component.js.map
+exports.UserAuth = UserAuth;
+//# sourceMappingURL=userAuthService.js.map

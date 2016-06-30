@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var header_component_1 = require('./header/header.component');
 var addTodo_component_1 = require('./addTodo/addTodo.component');
+var viewTodo_component_1 = require('./viewTodo/viewTodo.component');
 // import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 // import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 var icon_1 = require('@angular2-material/icon');
@@ -21,7 +22,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/app.component.html',
-            directives: [header_component_1.HeaderComponent, addTodo_component_1.AddTodo],
+            directives: [header_component_1.HeaderComponent, addTodo_component_1.AddTodo, viewTodo_component_1.ViewTodo],
             providers: [icon_1.MdIconRegistry]
         }), 
         __metadata('design:paramtypes', [])
